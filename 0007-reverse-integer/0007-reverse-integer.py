@@ -21,11 +21,8 @@ class Solution:
                     equal = True
                     
                 elif n>BOUNDARY[i]:
-                    if equal:
+                    if equal and not smaller:
                         return 0
-                    else:
-                        if not smaller:
-                            return 0
                         
                 elif n<BOUNDARY[i]:
                     smaller = True
