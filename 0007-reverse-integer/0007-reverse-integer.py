@@ -3,9 +3,9 @@ class Solution:
     
     def reverse(self, x: int) -> int:
         if x>0:
-            BOUNDARY = [int(i) for i in str(pow(2, 31)-1)]
+            BOUNDARY = [i for i in str(pow(2, 31)-1)]
         else:
-            BOUNDARY = [int(i) for i in str(pow(2, 31))]
+            BOUNDARY = [i for i in str(pow(2, 31))]
 
         equal, smaller = True, False
         str_x = str(abs(x))
@@ -16,7 +16,6 @@ class Solution:
             s = ''
             for i, n in enumerate(str_x[-1::-1]):
                 s += n
-                n = int(n)
                 if n == BOUNDARY[i]:
                     equal = True
                     
@@ -24,7 +23,7 @@ class Solution:
                     if equal and not smaller:
                         return 0
                         
-                elif n<BOUNDARY[i]:
+                else:# if n<BOUNDARY[i]:
                     smaller = True
                     equal = False
                     
