@@ -16,11 +16,8 @@ class Solution:
             s = ''
             for i, n in enumerate(str_x[-1::-1]):
                 s += n
-                
-                if n>BOUNDARY[i]:
-                    if not smaller:
-                        return 0
-                        
+                if n>BOUNDARY[i] and not smaller:
+                    return 0
                 elif n<BOUNDARY[i]:
                     smaller = True
                     
