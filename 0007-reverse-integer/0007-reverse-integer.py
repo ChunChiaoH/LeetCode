@@ -19,14 +19,14 @@ class Solution:
                 s += n
                 if n == BOUNDARY[i]:
                     equal = True
+                    
                 elif n>BOUNDARY[i]:
-                    if equal:# and not smaller:
+                    if equal:
                         return 0
                     else:
                         if not smaller:
                             return 0
-                        else:
-                            continue
+                        
                 elif n<BOUNDARY[i]:
                     smaller = True
                     equal = False
