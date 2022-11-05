@@ -17,7 +17,7 @@ class Solution:
             for i, n in enumerate(str_x[-1::-1]):
                 s += n
                 if n == BOUNDARY[i]:
-                    equal = True
+                    continue
                     
                 elif n>BOUNDARY[i]:
                     if not smaller:
@@ -25,6 +25,5 @@ class Solution:
                         
                 else:# if n<BOUNDARY[i]:
                     smaller = True
-                    equal = False
                     
         return int(s) if x>=0 else -int(s)
