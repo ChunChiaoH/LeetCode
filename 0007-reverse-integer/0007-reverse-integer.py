@@ -20,7 +20,7 @@ class Solution:
                     equal = True
                     
                 elif n>BOUNDARY[i]:
-                    if equal and not smaller:
+                    if not smaller:
                         return 0
                         
                 else:# if n<BOUNDARY[i]:
