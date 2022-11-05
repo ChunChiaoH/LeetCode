@@ -6,9 +6,10 @@ class Solution:
     def romanToInt(self, s: str) -> int:
         count = 0
         i = 0
-        while i < len(s):
+        len_s = len(s)
+        while i < len_s:
             cur_num = s[i]
-            next_num = s[i+1] if i<len(s)-1 else None
+            next_num = s[i+1] if i<len_s-1 else None
 
             if cur_num in [I, X, C] and next_num:
                 if (cur_num == I and next_num in [V, X]) or\
