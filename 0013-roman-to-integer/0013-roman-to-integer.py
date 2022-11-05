@@ -12,7 +12,7 @@ class Solution:
             cur_num = s[i]
             next_num = s[i+1] if i<len_s-1 else None
 
-            if next_num and cur_num in [I, X, C]:
+            if cur_num in [I, X, C] and next_num:
                 if (cur_num == I and next_num in [V, X]) or\
                    (cur_num == X and next_num in [L, C]) or\
                    (cur_num == C and next_num in [D, M]):
