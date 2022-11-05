@@ -10,9 +10,9 @@ class Solution:
         for n in decomposed_num:
             if n in [4, 5, 9]:
                 s = nums[i][n] + s
-            elif 0 < n < 4:
+            elif 0 <= n < 4:
                 s = ''.join([nums[i][1] for _ in range(n)]) + s
-            elif 5 < n < 9:
+            else:# 5 < n < 9:
                 s = nums[i][5] + ''.join([nums[i][1] for _ in range(n-5)]) + s
                 
             i += 1
