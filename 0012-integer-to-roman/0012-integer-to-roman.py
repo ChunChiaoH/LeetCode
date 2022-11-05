@@ -5,15 +5,14 @@ nums = [{1: 'I', 4: 'IV', 5: 'V', 9: 'IX'},
 class Solution:
     def intToRoman(self, num: int) -> str:
         decomposed_num = [int(i) for i in str(num)][-1::-1]
-        #print(decomposed_num)
         s = ''
         i = 0
         for n in decomposed_num:
-            if n in [4, 9]:
+            if n in [4, 5, 9]:
                 s = nums[i][n] + s
             elif 0 < n < 4:
                 s = ''.join([nums[i][1] for _ in range(n)]) + s
-            elif 5 <= n < 9:
+            elif 5 < n < 9:
                 s = nums[i][5] + ''.join([nums[i][1] for _ in range(n-5)]) + s
                 
             i += 1
