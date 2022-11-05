@@ -9,9 +9,8 @@ class Solution:
 
         equal, smaller = True, False
         str_x = str(abs(x))
-        len_x = len(str_x)
         
-        if len_x < len(BOUNDARY):
+        if len(str_x) < len(BOUNDARY):
             s = str_x[-1::-1]
         else:
             s = ''
