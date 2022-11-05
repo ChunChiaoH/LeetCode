@@ -12,7 +12,7 @@ class Solution:
         len_x = len(str_x)
         
         if len_x < len(BOUNDARY):
-            s = str_x[-1::-1]
+            s = ''.join([i for i in str_x[-1::-1]])
         else:
             s = ''
             for i, n in enumerate(str_x[-1::-1]):
