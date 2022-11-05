@@ -10,11 +10,11 @@ class Solution:
         equal, smaller = True, False
         str_x = str(abs(x))
         len_x = len(str_x)
+        
         if len_x < len(BOUNDARY):
-            s = ''.join([i for i in str_x])[-1::-1]
+            s = str_x[-1::-1]
         else:
             s = ''
-                
             for i, n in enumerate(str_x[-1::-1]):
                 s += n
                 if n == BOUNDARY[i]:
