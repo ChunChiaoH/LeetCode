@@ -3,8 +3,7 @@ class Solution:
     
     def reverse(self, x: int) -> int:
         BOUNDARY = [i for i in str(pow(2, 31)-1)]
-        greater, smaller = 0, 0
-        equal = True
+        equal, smaller = True, False
         str_x = str(abs(x))
         len_x = len(str_x)
         if len_x < len(BOUNDARY):
