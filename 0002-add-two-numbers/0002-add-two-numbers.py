@@ -9,7 +9,6 @@ class Solution:
         cur_node = new_node
         add_to_next = 0
         while l1 or l2:
-            #print(new_node)
             l2v = l2.val if l2 else 0
             l1v = l1.val if l1 else 0
             add_to_cur = (l1v + l2v)%10
@@ -25,8 +24,6 @@ class Solution:
             l1 = l1.next if l1 and l1.next != None else None 
             l2 = l2.next if l2 and l2.next != None else None
             cur_node = cur_node.next if cur_node.next else cur_node
-            #new_node = new_node.next
-            #print(new_node)
         if add_to_next:
             cur_node.next = ListNode(add_to_next, None)
         return new_node
