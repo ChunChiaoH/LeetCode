@@ -2,7 +2,8 @@ class Solution:
     def isPalindrome(self, x: int) -> bool:
         if x<0:
             return False
-        if str(x) == str(x)[-1::-1]:
+        str_x = str(x)
+        if str_x == str_x[-1::-1]:
             return True
         else:
             return False
