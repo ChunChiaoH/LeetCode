@@ -33,24 +33,25 @@ class Solution:
                 zs.append(0)
             else:
                 poses.append(num)
-
+        
         len_ns, len_zs, len_ps = len(negs), len(zs), len(poses)
         output = {(0, 0, 0)} if len_zs >= 3 else set()
+        set_negs, set_poses = set(negs), set(poses)
         
         # one neg and one pos cases
         if len_zs >= 1:
-            for num in negs:
-                if -num in poses:
+            for num in set_negs:
+                if -num in set_poses:
                     output.add((num, 0, -num))
 
         # two negs + one pos cases
         if len_ns >= 2 and len_ps >= 1:
-            for target in set(poses):
+            for target in set_poses:
                 output = output.union(self.twoSums(negs, target))
 
         # one neg + two poses cases
         if len_ns >= 1 and len_ps >= 2:
-            for target in set(negs):
+            for target in set_negs:
                 output = output.union(self.twoSums(poses, target))
         
         return list(output)
