@@ -42,6 +42,8 @@ class Solution:
         # two negs + one pos cases
         if len_ns >= 2 and len_ps >= 1:
             for target in set_poses:
+                if target + max(negs) < 0:
+                    continue
                 output = output.union(self.twoSums(negs, target))
 
         # one neg + two poses cases
