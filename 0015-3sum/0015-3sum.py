@@ -15,6 +15,7 @@ class Solution:
         return output
     
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+    # credit to rowe1227 @ LeetCode
         if len(nums) == 3:
             return [nums] if sum(nums) == 0 else []
 
