@@ -35,8 +35,11 @@ class Solution:
         
         # one neg and one pos cases
         if len_zs >= 1:
-            for num in set_negs:
-                if -num in set_poses:
+            for num in poses:
+                if num + min(set_negs) > 0:
+                    print(num, min(set_negs))
+                    break
+                if -num in set_negs:
                     output.add((num, 0, -num))
 
         # two negs + one pos cases
