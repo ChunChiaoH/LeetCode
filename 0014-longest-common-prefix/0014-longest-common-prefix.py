@@ -7,5 +7,4 @@ class Solution:
             if not all([s[i] == shortest_str[i] for s in strs]):
                 return shortest_str[:i]
         return shortest_str
-        #print(sorted(lens))
         
