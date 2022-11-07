@@ -35,7 +35,7 @@ class Solution:
         
         # one neg and one pos cases
         if len_zs >= 1:
-            for num in poses:
+            for num in sorted(list(set_poses)):
                 if num + min(set_negs) > 0:
                     print(num, min(set_negs))
                     break
