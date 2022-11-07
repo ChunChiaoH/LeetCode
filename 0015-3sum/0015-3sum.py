@@ -7,7 +7,9 @@ class Solution:
         nums = nums[::-1] if target > 0 else nums
         for num in nums:
             if abs(num) > abs(target):
-                # early stop
+                # early stop if exceeds,
+                # an example for negs: num=-4 and target=-2
+                # an example for poses: num=5 and target=3
                 break
 
             if num not in lefts:
@@ -31,7 +33,7 @@ class Solution:
                 zs.append(0)
             else:
                 poses.append(num)
-                
+
         len_ns, len_zs, len_ps = len(negs), len(zs), len(poses)
         output = {(0, 0, 0)} if len_zs >= 3 else set()
         
