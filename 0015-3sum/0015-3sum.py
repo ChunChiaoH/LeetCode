@@ -24,15 +24,10 @@ class Solution:
             # early stop
             return [nums] if sum(nums) == 0 else []
 
-        len_nums = len(nums)
-        negs, zs, poses = [], [], []
-        for num in sorted(nums):
-            if num < 0:
-                negs.append(num)
-            elif num == 0:
-                zs.append(0)
-            else:
-                poses.append(num)
+        nums.sort()
+        negs = [num for num in nums if num < 0]
+        zs = [0 for num in nums if num == 0]
+        poses = [num for num in nums if num > 0]
         
         len_ns, len_zs, len_ps = len(negs), len(zs), len(poses)
         output = {(0, 0, 0)} if len_zs >= 3 else set()
