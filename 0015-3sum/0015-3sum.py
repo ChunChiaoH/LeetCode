@@ -2,29 +2,31 @@ class Solution:
     def twoSums(self, nums: List[int], target: int) -> Set[int]:
         lefts = set()
         output = set()
-        target = -target
+        
+        if target > 0:
+            nums = nums[::-1]
         for num in nums:
+            if abs(num) > abs(target):
+                break
             if num not in lefts:
-                lefts.add(target-num)
+                lefts.add(-target-num)
             else:
-                output.add((num, target-num, -target))
+                output.add((num, -target-num, target))
         return output
-            
+    
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         if len(nums) == 3:
             return [nums] if sum(nums) == 0 else []
         len_nums = len(nums)
         negs, zs, poses = [], [], []
-        for num in nums:
+        for num in sorted(nums):
             if num < 0:
                 negs.append(num)
             elif num == 0:
                 zs.append(0)
             else:
                 poses.append(num)
-        #negs = [num for num in nums if num < 0]
-        #zs = [num for num in nums if num == 0]
-        #poses = [num for num in nums if num > 0]
+                
         len_zs = len(zs)
         output = {(0, 0, 0)} if len_zs >= 3 else set()
         
