@@ -2,12 +2,12 @@ class Solution:
     def twoSums(self, nums: List[int], target: int) -> Set[int]:
         lefts = set()
         output = set()
-        
-        if target > 0:
-            nums = nums[::-1]
+
+        nums = nums[::-1] if target > 0 else nums
         for num in nums:
             if abs(num) > abs(target):
                 break
+
             if num not in lefts:
                 lefts.add(-target-num)
             else:
@@ -17,6 +17,7 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         if len(nums) == 3:
             return [nums] if sum(nums) == 0 else []
+
         len_nums = len(nums)
         negs, zs, poses = [], [], []
         for num in sorted(nums):
@@ -42,4 +43,4 @@ class Solution:
         for target in set(negs):
             output = output.union(self.twoSums(poses, target))
         
-        return output
+        return list(output)
