@@ -37,7 +37,7 @@ class Solution:
         if len_zs >= 1:
             for num in sorted(list(set_poses)):
                 if num + min(set_negs) > 0:
-                    print(num, min(set_negs))
+                    #print(num, min(set_negs))
                     break
                 if -num in set_negs:
                     output.add((num, 0, -num))
