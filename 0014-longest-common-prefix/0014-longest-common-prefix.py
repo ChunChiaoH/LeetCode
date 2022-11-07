@@ -5,11 +5,8 @@ class Solution:
         shortest_str = strs[shortest_index]
         
         for i in range(shortest_len):
-            for s in strs:
-                if s[i] != shortest_str[i]:
-                    return shortest_str[:i]
-            #if not all([s[i] == shortest_str[i] for s in strs]):
-            #    return shortest_str[:i]
+            if any([s[i] != shortest_str[i] for s in strs]):
+                return shortest_str[:i]
         
         return shortest_str
         
