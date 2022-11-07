@@ -42,14 +42,14 @@ class Solution:
         # two negs + one pos cases
         if len_ns >= 2 and len_ps >= 1:
             for target in set_poses:
-                if target + max(negs) < 0:
+                if target + negs[-1] < 0:
                     continue
                 output = output.union(self.twoSums(negs, target))
 
         # one neg + two poses cases
         if len_ns >= 1 and len_ps >= 2:
             for target in set_negs:
-                if target + min(poses) > 0:
+                if target + poses[0] > 0:
                     continue
                 output = output.union(self.twoSums(poses, target))
         
