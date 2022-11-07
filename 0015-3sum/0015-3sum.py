@@ -49,6 +49,8 @@ class Solution:
         # one neg + two poses cases
         if len_ns >= 1 and len_ps >= 2:
             for target in set_negs:
+                if target + min(poses) > 0:
+                    continue
                 output = output.union(self.twoSums(poses, target))
         
         return list(output)
