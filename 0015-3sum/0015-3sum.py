@@ -15,16 +15,16 @@ class Solution:
             return [nums] if sum(nums) == 0 else []
         len_nums = len(nums)
         negs, zs, poses = [], [], []
-        #for num in nums:
-        #    if num < 0:
-        #        negs.append(num)
-        #    elif num == 0:
-        #        zs.append(0)
-        #    else:
-        #        poses.append(num)
-        negs = [num for num in nums if num < 0]
-        zs = [num for num in nums if num == 0]
-        poses = [num for num in nums if num > 0]
+        for num in nums:
+            if num < 0:
+                negs.append(num)
+            elif num == 0:
+                zs.append(0)
+            else:
+                poses.append(num)
+        #negs = [num for num in nums if num < 0]
+        #zs = [num for num in nums if num == 0]
+        #poses = [num for num in nums if num > 0]
         len_zs = len(zs)
         output = {(0, 0, 0)} if len_zs >= 3 else set()
         
