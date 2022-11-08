@@ -9,8 +9,4 @@ class Solution:
             else:
                 max_volume = max(max_volume, height[j]*(j-i))
                 j -= 1
-            #if height[i] < height[j]:
-            #    i += 1
-            #else:
-            #    j -= 1
         return max_volume
