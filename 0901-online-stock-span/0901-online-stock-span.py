@@ -9,14 +9,9 @@ class StockSpanner:
         while price >= self.stack[-1][0]:
             self.stack.pop()
         self.stack.append((price, self.day))
-        sallest = self.stack[-1]
-        second_smallest = self.stack[-2]
-        return self.stack[-1][1] - self.stack[-2][1]
-        #third_smallest = self.stack[-3]
-        #span = sallest[1] - self.stack[-3][1]\
-        #if sallest[0] == second_smallest[0] else sallest[1] - second_smallest[1]
-        #print(self.stack)
-        #return span
+        today = self.stack[-1] # the smallest
+        prior_higher_day = self.stack[-2] # the second smallest
+        return today[1] - prior_higher_day[1]
     
     #def __init__(self):
     #    self.prices = []
