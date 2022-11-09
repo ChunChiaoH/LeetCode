@@ -6,6 +6,7 @@ class StockSpanner:
         self.max, self.min = 0, 100001
     def next(self, price: int) -> int:
         self.prices.append(price)
+        len_prices = len(self.prices)
         if len(self.prices) == 1:
             self.max, self.min = price, price
             self.count = 1
@@ -13,10 +14,9 @@ class StockSpanner:
         
         if price >= self.max:
             self.max = price
-            self.count = len(self.prices)
+            self.count = len_prices
             return self.count
         elif price < self.min:
-            print(price)
             self.min = price
             self.count = 1
             return self.count
@@ -25,14 +25,16 @@ class StockSpanner:
             self.count += 1
             return self.count
         else:
-            i = len(self.prices)-2
+            i = len_prices-2
             self.count = 1
-            while i>=0:
-                if self.prices[i] <= price:
-                    self.count += 1
-                    i -= 1
-                else:
-                    break
+            while i >= 0 and self.prices[i] <= price:
+                self.count += 1
+                i -= 1
+                #if self.prices[i] <= price:
+                #    self.count += 1
+                #    i -= 1
+                #else:
+                #    break
             return self.count
 
 
