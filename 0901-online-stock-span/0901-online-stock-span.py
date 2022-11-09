@@ -14,7 +14,6 @@ class StockSpanner:
         if price >= self.max:
             self.max = price
             self.count = len(self.prices)
-            #print(price, self.max)
             return self.count
         elif price < self.min:
             print(price)
