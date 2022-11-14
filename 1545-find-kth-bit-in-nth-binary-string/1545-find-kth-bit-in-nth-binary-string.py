@@ -7,12 +7,14 @@ class Solution:
         else:
             self.lookup_inv[n] = self.binary_str(n-1) + '0' + self.binary_invstr(n-1)
             return self.lookup_inv[n]
+        
     def binary_str(self, n: int) -> str:
         if n in self.lookup:
             return self.lookup[n]
         else:
             self.lookup[n] = self.binary_str(n-1) + '1' + self.binary_invstr(n-1)
             return self.lookup[n]
+        
     def findKthBit(self, n: int, k: int) -> str:
         s = self.binary_str(n)
         return s[k-1]
