@@ -12,7 +12,7 @@ class Solution:
             binary_inv = self.invert(binary)
             self.lookup[n] = binary + '1' + binary_inv[::-1]
             self.lookup_inv[n] = binary_inv[::-1] +'0' + binary[::-1]
-            return self.lookup[n]
+            return self.binary_str(n)
     def findKthBit(self, n: int, k: int) -> str:
         s = self.binary_str(n)
         return s[k-1]
