@@ -8,8 +8,6 @@ class Solution:
                     result.append(word)
                     word = ''
             else:
-                if i == len(s)-1:
-                    result.append(word+ch)
-                else:
-                    word += ch
+                word += ch
+        result += [word] if word else []
         return ' '.join(result[::-1])
