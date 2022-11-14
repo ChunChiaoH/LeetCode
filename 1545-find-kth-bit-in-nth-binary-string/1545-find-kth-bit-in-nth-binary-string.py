@@ -16,8 +16,4 @@ class Solution:
             return self.lookup[n]
         
     def findKthBit(self, n: int, k: int) -> str:
-        if n == 1:
-            return '0'
-        else:
-            s = self.binary_str(n-1) + '1' +self.binary_invstr(n-1)
-            return s[k-1]
+        return self.binary_str(n)[k-1]
