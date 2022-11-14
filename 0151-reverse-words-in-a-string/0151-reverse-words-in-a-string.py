@@ -14,5 +14,5 @@ class Solution:
                     word = ''
             else:
                 word += ch
-        result += [word] if word else []
+        #result += [word] if word else []
         return ' '.join(result[::-1])
