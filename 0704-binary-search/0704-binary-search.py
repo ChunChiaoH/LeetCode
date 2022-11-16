@@ -10,21 +10,12 @@ class Solution:
                 break
             elif nums[mid] < target:
                 left = mid
-                mid = (left + right) // 2
-                #if keep == mid:
-                #    mid += 1
-                #    break
             elif target < nums[mid]:
                 right = mid
-                mid = (left + right) // 2
-                #if keep == mid:
-                #    mid -= 1
-                #    break
+            mid = (left + right) // 2
+            
             if keep == mid:
-                if nums[keep] < target:
-                    mid += 1
-                elif target < nums[keep]:
-                    mid -= 1
+                mid = mid + 1 if nums[keep] < target else mid
                 break
             keep = mid
         return -1 if nums[mid] != target else mid
