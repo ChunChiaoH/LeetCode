@@ -15,8 +15,8 @@ class Solution:
                 right = mid-1
             mid = (left + right) // 2
             
-            if keep == mid:
-                mid += 1 
-                break
+            #if keep == mid:
+            #    mid += 1 
+            #    break
             keep = mid
         return mid if nums[mid] == target else -1
