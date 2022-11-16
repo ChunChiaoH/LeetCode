@@ -10,7 +10,6 @@ class Solution:
         left, right = 0, n-1
         mid = (left + right) // 2
         while left < right:
-            print(left, mid, right)
             if guess(mid+1) == 0:
                 return mid+1
             elif guess(mid+1) == 1:
