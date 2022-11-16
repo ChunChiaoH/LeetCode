@@ -6,12 +6,13 @@ class Solution:
         mid = (left + right) // 2
         keep = mid
         while left < right:
+            print(left, mid, right)
             if nums[mid] == target:
                 break
             elif nums[mid] < target:
-                left = mid
+                left = mid+1
             elif target < nums[mid]:
-                right = mid
+                right = mid-1
             mid = (left + right) // 2
             
             if keep == mid:
