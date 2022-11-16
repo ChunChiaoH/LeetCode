@@ -7,23 +7,24 @@ class Solution:
         keep = mid
         while left < right:
             if nums[mid] == target:
-                print('D')
                 break
             elif nums[mid] < target:
                 left = mid
                 mid = (left + right) // 2
-                print('A')
-                if keep == mid:
-                    mid += 1
-                    break
+                #if keep == mid:
+                #    mid += 1
+                #    break
             elif target < nums[mid]:
                 right = mid
                 mid = (left + right) // 2
-                print('B')
-                if keep == mid:
+                #if keep == mid:
+                #    mid -= 1
+                #    break
+            if keep == mid:
+                if nums[keep] < target:
+                    mid += 1
+                elif target < nums[keep]:
                     mid -= 1
-                    break
+                break
             keep = mid
-            print(mid)
-        print(mid)
         return -1 if nums[mid] != target else mid
