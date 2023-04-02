@@ -4,9 +4,8 @@ class Solution:
             return 0
         left, right = 0, len(nums)-1
         mid = (left + right) // 2
-        keep = mid
+        
         while left < right:
-            print(left, mid, right)
             if nums[mid] == target:
                 break
             elif nums[mid] < target:
@@ -15,8 +14,4 @@ class Solution:
                 right = mid-1
             mid = (left + right) // 2
             
-            #if keep == mid:
-            #    mid += 1 
-            #    break
-            keep = mid
         return mid if nums[mid] == target else -1
