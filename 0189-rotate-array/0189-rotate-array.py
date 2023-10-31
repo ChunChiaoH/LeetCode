@@ -5,6 +5,3 @@ class Solution:
         """
         k = k % len(nums)
         nums[:] = [n for n in nums[-k:]] + [n for n in nums[:-k]]
-        
-        #for i, n in enumerate(temp):
-        #    nums[i] = n
