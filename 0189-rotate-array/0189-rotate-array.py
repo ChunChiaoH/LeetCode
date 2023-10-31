@@ -4,7 +4,7 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         k = k % len(nums)
-        temp = [n for n in nums[-k:]] + [n for n in nums[:-k]]
+        nums[:] = [n for n in nums[-k:]] + [n for n in nums[:-k]]
         
-        for i, n in enumerate(temp):
-            nums[i] = n
+        #for i, n in enumerate(temp):
+        #    nums[i] = n
