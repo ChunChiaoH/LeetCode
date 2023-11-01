@@ -1,5 +1,9 @@
 class Solution:
     def reverseBits(self, n: int) -> int:
-        reversed_bin = bin(n)[:1:-1]
-        out = sum([2**(31-i)*int(c) for i, c in enumerate(reversed_bin)])
-        return out
+        res = n&1
+        n >>= 1
+        for i in range(31):
+            res <<= 1
+            res = res + (n&1)
+            n >>= 1
+        return res
