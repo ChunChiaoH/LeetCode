@@ -3,8 +3,8 @@ class Solution:
         k = 1
         slow, fast = 1, 1
         max_fast = len(nums)
-        max_slow = len(set(nums)) -1
-        while k != len(set(nums)): #fast < max_fast:
+        max_k = len(set(nums))
+        while k < max_k:
             if nums[slow-1] == nums[fast]:
                 fast += 1
             else: # nums[slow-1] != nums[fast]
