@@ -5,11 +5,13 @@ class Solution:
                 return True
             return False
         
-        for i, num in enumerate(nums):
+        for i, num in enumerate(nums[:-1]):
+            if num + i >= len(nums):
+                return True
             if num == 0:
                 temp = nums[:i]
                 for j, t in enumerate(temp):
-                    if t+j > i or (t+j == i and i == len(nums)-1):
+                    if t+j > i:# or (t+j == i and i == len(nums)-1):
                         break
                     if j == len(temp)-1:
                         return False
