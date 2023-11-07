@@ -3,7 +3,6 @@ class Solution:
         c = 0
         i = 0
         n = len(nums)
-        #for i, num in enumerate(nums):
         while i < n:
             if nums[i] == val:
                 nums[:] = nums[:i] + nums[i+1:] + ['']
