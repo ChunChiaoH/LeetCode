@@ -11,7 +11,10 @@ class Solution:
                     result.append(word)
                     word = ''
             else:
+                #concat ch
                 word += ch
+                
+                # last word
                 if i == ls-1:
                     result.append(word) 
                     
