@@ -54,7 +54,7 @@ class Solution:
             cur = matrix[row][col]
             if cur > target:
                 #col -= 1
-                # instead of search one by one, do binary search of the whole row
+                # instead of search one by one, do binary search to the whole row
                 return binary_search(matrix[row], target)
             elif cur <target:
                 row += 1
