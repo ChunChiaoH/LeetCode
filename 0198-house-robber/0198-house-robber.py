@@ -12,5 +12,5 @@ class Solution:
         for idx in idxs:
             dp[idx] = nums[idx] + max(dp[idx+2:])
         
-        return max(dp)
+        return max(dp[:2])
         
