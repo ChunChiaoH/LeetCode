@@ -9,8 +9,11 @@ class Solution:
         
         idxs = [i for i in range(len(nums))][::-1][2:]
         
+        cur_max = max(dp[idxs[0]+2:])
         for idx in idxs:
-            dp[idx] = nums[idx] + max(dp[idx+2:])
+            #dp[idx] = nums[idx] + max(dp[idx+2:])
+            cur_max = max(cur_max, dp[idx+2])
+            dp[idx] = nums[idx] + cur_max
         
         return max(dp[:2])
         
