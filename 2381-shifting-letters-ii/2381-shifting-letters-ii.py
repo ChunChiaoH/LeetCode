@@ -3,23 +3,22 @@ class Solution:
         cum_shifts = [0 for _ in range(len(s)+1)]
         
         for st, end, d in shifts:
-            if d == 0:
-                cum_shifts[st] -= 1
-                cum_shifts[end+1] += 1
-            else:
-                cum_shifts[st] += 1
-                cum_shifts[end+1] -= 1
-            #print(cum_shifts)
-        #print(cum_shifts)
-        cum_sum = 0
-        for i in range(len(s)):
-            cum_sum += cum_shifts[i]
+            cum_shifts[st] += -1 if d == 0 else 1
+            cum_shifts[end+1] += 1 if d == 0 else -1
             
-            new_code = (((ord(s[i]) + cum_sum) - 97) % 26) + 97
-            s = s[:i] + chr(new_code) + s[i+1:]
+            #if d == 0:
+            #    cum_shifts[st] -= 1
+            #    cum_shifts[end+1] += 1
+            #else:
+            #    cum_shifts[st] += 1
+            #    cum_shifts[end+1] -= 1
         
-        return s
-    # 97 98 99
-    # 96 97 99
-    # 96 98 100
-    # 97 99 101
+        a_code = ord('a')
+        cum_sum = 0
+        res = ''
+        for i, c in enumerate(s):
+            cum_sum += cum_shifts[i]
+            new_code = (((ord(s[i]) + cum_sum) - a_code) % 26) + a_code
+            res += chr(new_code)
+        
+        return res
