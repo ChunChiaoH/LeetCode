@@ -24,12 +24,14 @@ class Solution:
                 else:
                     cur_row[j] = prev_row[j-1]/2 + prev_row[j]/2
                 
-                if i == query_row:
-                    queried += [1] if cur_row[j] >= 1 else [cur_row[j]]
-                    
-                cur_row[j] = max(cur_row[j]-1, 0)
+                #if i == query_row:
+                #    queried += [1] if cur_row[j] >= 1 else [cur_row[j]]
+                if i!= query_row:
+                    cur_row[j] = max(cur_row[j]-1, 0)
+                #else:
+                #    cur_row[j] = min(cur_row[i], 1)
            
             prev_row = cur_row
             
         
-        return queried[query_glass]
+        return min(cur_row[query_glass], 1)
