@@ -5,7 +5,9 @@ class Solution:
         freq = [[citations[0], n]]
         
         for i, c in enumerate(citations[1:], 1):
-            freq += [freq[-1]] if c == citations[i-1] else [[c, n-i]]
+            #freq += [freq[-1]] if c == citations[i-1] else [[c, n-i]]
+            if c != citations[i-1]:
+                freq += [[c, n-i]]
         
         max_h = 0
         for k, v in freq:
