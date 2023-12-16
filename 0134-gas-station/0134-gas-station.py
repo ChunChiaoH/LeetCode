@@ -9,22 +9,24 @@ class Solution:
         #  1 -3  1 -2  3
         
         left = [g-c for g, c in zip(gas, cost)]
-        if sum(left) < 0:
-            return -1
+        #if sum(left) < 0:
+        #    return -1
         
         j = 0
         cum_sum = 0
         l_cum_sum = 0
         for i, l in enumerate(left):
             cum_sum += l
-            #print(i, j, cum_sum)
             if cum_sum < 0:
+                l_cum_sum += cum_sum
                 cum_sum = 0
-                l_cum_sum += l
                 j = i+1
-            #else:
-                
-            
         
-        return j
+        #return j
+        #print(left)
+        #print(l_cum_sum, cum_sum)
+        if l_cum_sum + cum_sum >= 0:
+            return j
+        else:
+            return -1
                 
