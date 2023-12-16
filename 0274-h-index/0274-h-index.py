@@ -17,12 +17,12 @@ class Solution:
             
             # h-index criteria
             if v >= k:
-                if k > max_h:
-                    max_h = k
-                    
-        for v, k in freq:
-            if v >= k:
-                if k > max_h:
-                    max_h = k
+                max_h = k if k>max_h else max_h
+            if k >= v:
+                max_h = v if v>max_h else max_h
+        #for v, k in freq:
+        #    if v >= k:
+        #        if k > max_h:
+        #            max_h = k
         
         return max_h
