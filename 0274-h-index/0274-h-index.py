@@ -3,9 +3,9 @@ class Solution:
         citations.sort()
         n = len(citations)
         freq = [[citations[0], n]]
+        # freq is an ordered frequency table
         
         for i, c in enumerate(citations[1:], 1):
-            #freq += [freq[-1]] if c == citations[i-1] else [[c, n-i]]
             if c != citations[i-1]:
                 freq += [[c, n-i]]
         
