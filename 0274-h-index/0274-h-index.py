@@ -12,7 +12,7 @@ class Solution:
         max_h = 0
         for k, v in freq:
             # h-index is very much like picking the minimum square
-            # so it has to be taken care from to edges of a squre(k and v)
+            # so it has to be taken care from two edges of a squre(k and v)
             
             if v >= k:
                 # h-index criteria, the usual edge
