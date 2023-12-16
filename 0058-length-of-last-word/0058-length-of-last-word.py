@@ -3,9 +3,7 @@ class Solution:
         res = ''
         for c in s[::-1]:
             if c == ' ':
-                if res == '':
-                    continue
-                else:
+                if res != '':
                     break
             else:
                 res += c
