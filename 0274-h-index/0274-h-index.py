@@ -12,12 +12,16 @@ class Solution:
         
         max_h = 0
         for k, v in freq:
+            # h-index is very much like pick the minimum square
+            # so it has to be taken care from to edges of a squre(k and v)
+            
             # h-index criteria
             if v >= k:
                 if k > max_h:
                     max_h = k
+                    
         for v, k in freq:
-            if k <= v:
+            if v >= k:
                 if k > max_h:
                     max_h = k
         
