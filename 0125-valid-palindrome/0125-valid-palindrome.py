@@ -16,6 +16,6 @@ class Solution:
             else:
                 return False
         
-        if i == j and s[i] != s[j]:
-            return False
+        #if i == j and s[i] != s[j]:
+        #    return False
         return True
