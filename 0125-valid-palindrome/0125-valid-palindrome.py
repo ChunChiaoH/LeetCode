@@ -16,9 +16,9 @@ class Solution:
             return False
         
         while i < j:
-            while not isAlphanumeric(s[i]):
+            while not s[i].isalnum():#isAlphanumeric(s[i]):
                 i += 1
-            while not isAlphanumeric(s[j]):
+            while not s[j].isalnum():#isAlphanumeric(s[j]):
                 j -= 1
             
             if s[i].lower() == s[j].lower():
