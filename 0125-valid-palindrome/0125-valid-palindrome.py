@@ -3,22 +3,11 @@ class Solution:
         s = 'a'+s+'a'
         n = len(s)
         i, j = 0, n-1
-        res = True
-        
-        def isAlphanumeric(c: str) -> bool:
-            if ord('A') <= ord(c) <= ord('Z'):
-                return True
-            if ord('a') <= ord(c) <= ord('z'):
-                return True
-            if ord('0') <= ord(c) <= ord('9'):
-                return True
-            
-            return False
         
         while i < j:
-            while not s[i].isalnum():#isAlphanumeric(s[i]):
+            while not s[i].isalnum():
                 i += 1
-            while not s[j].isalnum():#isAlphanumeric(s[j]):
+            while not s[j].isalnum():
                 j -= 1
             
             if s[i].lower() == s[j].lower():
