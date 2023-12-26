@@ -1,26 +1,27 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        # > V < ^
+        # >  V  <  ^
         # >  0,  1
         # V  1,  0
         # <  0, -1
         # ^ -1,  0
+        
         m, n = len(matrix), len(matrix[0])
-        
-        def out_of_boundary(y: int, x: int) -> bool:
-            return (y < 0 or y >= m) or (x < 0 or x >= n)
-        
-        visited = set()
-        dir = [[0, 1], [1, 0], [0, -1], [-1, 0]]
-        di = 0
+        directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+        dir_idx = 0
         i, j = 0, 0
+        visited = set()
+        
         visited.add((0, 0))
         res = [matrix[i][j]]
         
+        def out_of_boundary(y: int, x: int) -> bool:
+            return (not (0 <= y < m)) or (not (0 <= x < n))
+        
         while len(res) < m*n:
-            delta = dir[di]
+            delta = directions[dir_idx]
             if out_of_boundary(i+delta[0], j+delta[1]) or (i+delta[0], j+delta[1]) in visited:
-                di = (di+1)%4
+                dir_idx = (dir_idx+1)%4
                 continue
             else:
                 i += delta[0]
