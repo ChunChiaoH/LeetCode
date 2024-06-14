@@ -18,16 +18,23 @@ class Solution:
 
         specials = ['00', '25', '50', '75']
         min_operations = {s: len(num) for s in specials}
-        #min_operations
+        # min_operations: {'00': len(num), '25': len(num), ...}
+        
         all_digits = {d: [i for i, n in enumerate(num[::-1]) if n== d] 
               for d in set("".join([k for k in min_operations.keys()]))}
-        #all_digits
-        for k, v in min_operations.items():
+        # all_digits: {'0': [indices of 0s in num], '2': indices of 2s in num, ...}
+        
+        for k in min_operations:
             first_digit = all_digits[k[0]]
             second_digit = all_digits[k[1]]
-            for i in first_digit:
-                for j in second_digit:
-                    min_operations[k] = min(min_operations[k], i-j-1+j) if i>j else min_operations[k]
+            for d in first_digit:
+                if any(n < d for n in second_digit):
+                    min_operations[k] = min(min_operations[k], d-1)                
+            #for i in first_digit:
+            #    for j in second_digit:
+            #        if j>=i:
+            #            continue
+            #        min_operations[k] = min(min_operations[k], i-j-1+j)
                     
         least_o = min(min_operations.values())
         if least_o == len(num):
