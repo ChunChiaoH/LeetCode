@@ -14,9 +14,10 @@ class Solution:
             first_digit = all_digits[k[0]]
             second_digit = all_digits[k[1]]
             for d in first_digit:
-                if any(n < d for n in second_digit):
+                if second_digit and d>min(second_digit):
                     # min(min_operations[k], i-j-1+j) if use two for loops
                     min_operations[k] = min(min_operations[k], d-1)
+                    break
                     
         least_o = min(min_operations.values())
         if least_o == len(num):
