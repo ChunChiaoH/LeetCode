@@ -16,8 +16,7 @@ class Solution:
             if (not first_digit) or (not second_digit):
                 continue
             for d in first_digit:
-                if d>min(second_digit):
-                    # min(min_operations[k], i-j-1+j) if use two for loops
+                if d > min(second_digit):
                     min_operations[k] = min(min_operations[k], d-1)
                     break
                     
