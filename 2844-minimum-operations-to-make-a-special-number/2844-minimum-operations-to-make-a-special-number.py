@@ -13,8 +13,10 @@ class Solution:
         for k in min_operations:
             first_digit = all_digits[k[0]]
             second_digit = all_digits[k[1]]
+            if (not first_digit) or (not second_digit):
+                continue
             for d in first_digit:
-                if second_digit and d>min(second_digit):
+                if d>min(second_digit):
                     # min(min_operations[k], i-j-1+j) if use two for loops
                     min_operations[k] = min(min_operations[k], d-1)
                     break
