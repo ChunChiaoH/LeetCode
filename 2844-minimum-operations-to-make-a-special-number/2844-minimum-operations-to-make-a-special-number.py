@@ -39,16 +39,17 @@ class Solution:
             if (rev_num[i] == '5' or rev_num[i] == '0') and has_0:
                 count = min(count, i-1)
             i += 1
-        i = 0
-        while i< len(rev_num):
-            if rev_num[i] == '5' and not has_5:
-                i += 1
+            
+        j = 0
+        while j< len(rev_num):
+            if rev_num[j] == '5' and not has_5:
+                j += 1
                 has_5 = True
                 continue
                 
-            if (rev_num[i] == '7' or rev_num[i] == '2') and has_5:
-                count = min(count, i-1)
-            i += 1
+            if (rev_num[j] == '7' or rev_num[j] == '2') and has_5:
+                count = min(count, j-1)
+            j += 1
         
         if count == len(rev_num) and has_0:
             return count -1
