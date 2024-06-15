@@ -25,56 +25,39 @@ class Solution:
         #    return least_o-1 if len(all_digits['0']) == 1 else least_o
         #else:
         #    return least_o
-        i = j = 0
-        has_0 = False
-        has_5 = False
+
         rev_num = num[::-1]
+        has_0 = has_5 = False
         count = len(rev_num)
+        i = j = 0
+        
         while i < len(rev_num):
-            if rev_num[i] == '0':
-                if not has_0:
+            if not has_0:
+                if rev_num[i] == '0':
                     has_0 = True
-                else:
-                    count = min(count, i-1)
-            elif rev_num[i] == '5':
-                if has_0:
-                    count = min(count, i-1)
-                if not has_5:
-                    has_5 = True
-            elif rev_num[i] == '2' or rev_num[i] == '7':
-                if has_5:
+            else:
+                if rev_num[i] == '0' or rev_num[i] == '5':
                     count = min(count, i-1)
             i += 1
-                    
-                    
             #if rev_num[i] == '0' and not has_0:
             #    has_0 = True
             #    i += 1
-            #if rev_num[i] == '5' and not has_5:
-            #    has_5 = True
-            #    i += 1
-            
-        #while i< len(rev_num):
-        #    if rev_num[i] == '0' and not has_0:
-        #        has_0 = True
-        #        i += 1
-        #        continue
-        #        
-        #    if (rev_num[i] == '5' or rev_num[i] == '0') and has_0:
-        #        count = min(count, i-1)
-        #    i += 1
-            
-        #j = 0
-        #while j< len(rev_num):
-        #    if rev_num[j] == '5' and not has_5:
-        #        j += 1
-        #        has_5 = True
-        #        continue
-        #        
-        #    if (rev_num[j] == '7' or rev_num[j] == '2') and has_5:
-        #        count = min(count, j-1)
-        #    j += 1
-        #
+            #    continue
+            #    
+            #if (rev_num[i] == '5' or rev_num[i] == '0') and has_0:
+            #    count = min(count, i-1)
+            #i += 1
+           
+        while j< len(rev_num):
+            if rev_num[j] == '5' and not has_5:
+                j += 1
+                has_5 = True
+                continue
+                
+            if (rev_num[j] == '7' or rev_num[j] == '2') and has_5:
+                count = min(count, j-1)
+            j += 1
+        
         if count == len(rev_num) and has_0:
             return count -1
         else:
