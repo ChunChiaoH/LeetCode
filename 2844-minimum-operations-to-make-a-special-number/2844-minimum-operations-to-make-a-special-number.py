@@ -8,14 +8,14 @@ class Solution:
         min_ops = len(rev_num)
         
         for i, digit in enumerate(rev_num):
+            # search 00 and 50
             if not has_0:
                 if digit == '0':
                     has_0 = True
             else:
                 if digit == '0' or digit == '5':
                     min_ops = min(min_ops, i-1)
-                    
-        for i, digit in enumerate(rev_num):
+            # search 25 and 75      
             if not has_5:
                 if digit == '5':
                     has_5 = True
