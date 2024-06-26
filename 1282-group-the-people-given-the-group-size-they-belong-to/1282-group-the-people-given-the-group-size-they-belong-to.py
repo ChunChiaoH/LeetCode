@@ -2,6 +2,7 @@ class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
         size_map = {}
         result = []
+        # time: O(n)
         for i, s in enumerate(groupSizes):
             if s in size_map:
                 size_map[s].append(i)
